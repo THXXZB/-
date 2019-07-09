@@ -115,3 +115,20 @@
         background-position: 0 100%;
     }
 }
+
+/* 大白(●—●)从PC端到移动端 */
+/* 适配即响应式编程 手机 */
+@media only screen and (max-width:480px){
+    .baymax::before,.baymax::after{
+        width: 8em;
+        height: 8em;
+        top: -3em;
+    }
+    .baymax::before{
+        left: -5em;
+    }
+    .baymax::after{
+        right: -5em;
+    }
+
+}
