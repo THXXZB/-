@@ -1,0 +1,105 @@
+ /* css reset to 白纸 */
+ /* 不推荐 性能不好 */
+ /* *{
+     margin: 0;
+     padding: 0;
+ } */
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed, 
+ figure, figcaption, footer, header, hgroup, 
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+ }
+ /* HTML5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure, 
+ footer, header, hgroup, menu, nav, section {
+     display: block;
+ }
+ body {
+     line-height: 1;
+ }
+ ol, ul {
+     list-style: none;
+ }
+ blockquote, q {
+     quotes: none;
+ }
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+     content: '';
+     content: none;
+ }
+ table {
+     border-collapse: collapse;
+     border-spacing: 0;
+ }
+
+ /* 业务代码 */
+ body {
+     height: 100vh;
+     /* 环形渐变 */
+     background: radial-gradient(circle at center, #fff, #fff 50%, rgb(236, 236, 236) 80%, rgb(207, 207, 207) 100%);
+     /* background: radial-gradient(linear, red, rgb(255, 0, 0) 15%, rgb(255, 115, 0) 30%,rgb(250, 246, 0) 45%,rgb(73, 255, 1) 60%,rgb(1, 255, 242) 75% ,rgb(1, 18, 252) 85%,rgb(207, 0, 248) 100%); */
+ }
+ .baymax {
+    width: 50%;
+    /* height: 50vh; */
+    /* background-color: #f40; */
+    position: absolute;
+    /* top: 25%;
+    left: 25%; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background: #fff;
+    border-bottom: 1.5em solid #000;
+
+ }
+ .baymax::before{ 
+    content: "";
+    width: 12em;
+    height: 12em;
+    /* background-color: #000; */
+    border-radius: 50%;
+    position: absolute;
+    top: -5em;
+    left: -9em;
+    /* display: block; */
+    background: linear-gradient(to bottom, #efefef,#efefef 50%, #000 50%, #000);
+    background-size: 200% 200%;
+    background-position: 0 50%;
+    transition: background-position 1s;
+}
+.baymax:hover::before,
+.baymax:hover::after{
+    background-position: 0 100%;
+}
+.baymax::after{
+    content: "";
+    width: 12em;
+    height: 12em;
+    /* background-color: #000; */
+    border-radius: 50%;
+    position: absolute;
+    top: -5em;
+    right: -9em;
+    /* display: block; */
+    background: linear-gradient(to bottom, #efefef,#efefef 50%, #000 50%, #000);
+    background-size: 200% 200%;
+    background-position: 0 50%;
+    transition: background-position 1s;
+}
