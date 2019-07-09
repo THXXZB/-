@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            color: #f40;
+            width: 100px;
+            height: 100px;
+            background-color: #eacfea;
+            text-align: center;
+            line-height: 100px;
+            transition: width 2s;
+        }
+        /* .wrapper:hover{
+            width: 300px;
+        } */
+        .active{
+            width: 900px;
+            height: 900px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="wrapper" id="wrapper">THX</div>
+    <script>
+        var test =document.getElementById('wrapper');
+        var isActive = false;
+        test.addEventListener('click',function(){
+            isActive = !isActive;
+            if (isActive){
+                test.classList.add('active');
+            }else{
+                test.classList.remove('active');
+            }
+            
+        });
+    </script>
+</body>
+</html>
