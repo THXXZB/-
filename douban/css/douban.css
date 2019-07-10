@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* header 和 footer 固定， content 滚动 */
+html, body{
+    height: 100%;
+}
+/* css inherit 给网站风格定调 */
+body{
+    background: #fff;
+    color: #111;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    position: relative;
+}
+.page{
+    background: #fff;
+    max-width: 650px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.app-content{
+    /* 组织结构 各司其职 */
+    margin-top: 60px;
+    padding: 15px 18px 0;
+
+}
+.search{
+    margin-top: 15px;
+}
+.search input{
+    height: 35px;
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    box-shadow: none;
+    font-size: 15px;
+    text-align: center;
+    text-indent: 40px;
+    background: url('../下载.png') no-repeat 15px #f3f3f3;
+    background-size: 17.33333px;
+    outline: none;
+    
+    -webkit-tap-highlight-color: transparent;
+}
+/* 搜索 */
+
+
+/* .page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.page_header, .page_footer{
+    width: 53.33333%;
+    height: 44px;
+    background-color: #cbfa9f;
+}
+.content{
+    flex: 1;
+}
+.page_footer{
+    background-color: #73b337;
+} */
+
