@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #draw{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!-- 画布 -->
+    <canvas id="draw" width="800" height="800">
+
+    </canvas>
+    <script>
+        const canvas = document.querySelector('#draw');
+        // console.log(canvas);
+        // canvas 步骤
+        const ctx = canvas.getContext('2d');
+        // 绘画环境
+        // BOM: Browser Object Model
+        // Dom: Document Object Model
+        // window (js 宙斯) document (地面的王)
+        canvas.width = window.innerWidth - 20;
+        canvas.height = window.innerHeight - 20;
+        // 描边颜色
+        ctx.strokeStyle = '#BADA55';
+        //画线的宽度
+        ctx.lineWidth = 100;
+        // //线头线尾 -->圆角
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        // // moveTo--起点，lineTo--终点
+        // ctx.moveTo(100,100);
+        // ctx.lineTo(200,200);
+        // // 确定
+        // ctx.stroke();
+
+        // 全局变量
+        let lastX = 0, 
+            lastY = 0,
+            isDrawing = false,
+            hue = 0,
+            direction = true;
+
+        // event:事件对象
+        function draw(event){
+            if(!isDrawing) return ;
+            // ctx.strokeStyle = '#123';
+            // 开始一次绘制
+            ctx.strokeStyle = 'hsl('+ hue +', 100%, 50%)'; //颜色饱和度
+            ctx.beginPath();   //有什么用？？？？
+            ctx.moveTo(lastX,lastY);
+            ctx.lineTo(event.offsetX,event.offsetY);
+            ctx.stroke();
+            lastX = event.offsetX;
+            lastY = event.offsetY;
+
+            hue++;
+            if (hue >= 360){
+                hue = 0;
+            }
+            //线条变化
+            if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1){
+                direction = !direction;
+            }
+            if(direction){
+                ctx.lineWidth++;
+            }else{
+                ctx.lineWidth--;
+            }
+
+        }
+        // 回调函数：事件发生是执行的函数
+        canvas.addEventListener('mousedown',function(event){
+            //开始画画   Boolean 决定mousemove是否要画画
+            isDrawing = true;
+            lastX = event.offsetX;
+            lastY = event.offsetY;
+        })
+        // 画完
+        canvas.addEventListener('mousemove',draw);
+
+        // canvas.addEventListener('mouseup',function(event){
+        //     //停止画画
+        //     isDrawing = false;
+        // })
+        //代码优化-->箭头函数
+        canvas.addEventListener('mouseup',() => isDrawing = false);
+        //超出不继续绘画
+        canvas.addEventListener('mouseout',() => isDrawing = false);
+
+    </script>
+</body>
+</html>
