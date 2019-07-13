@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>open-book</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            overflow: hidden;
+            font: 100%/1.25 Helvetica, Arial;
+            color: #fff;
+            perspective: 1000px;
+            background-color: #444;
+            /* left top --> right bottom */
+            background-image: -webkit-gradient(linear,left top,right bottom,from(#444),to(#fff));
+            /* top --> bottom */
+            background-image: -webkit-linear-gradient(top,#444,#fff);
+            /* top --> bottom */
+            background-image: linear-gradient(to bottom,#444,#fff);
+        }
+        .book{
+            width: 300px;
+            height: 300px;
+            margin-top: -150px;
+            /* margin-left: -150px; */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: rotateX(60deg);
+            /* 不能选中 */
+            user-select: none;
+            /* border: 1px solid #000; */
+            
+        }
+        .page{
+            width: 300px;
+            height: 300px;
+            padding: 1em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 首行缩进 */
+            text-indent: 2em;
+        }
+        .front{
+            background-color: rgba(255, 234, 138);
+        }
+        .back{
+            background-color: #fff;
+        }
+        .front-cover{
+            cursor: move;
+            transform-origin: 0 50%;
+            transform: rotateY(0deg);
+        }
+        .front-cover .back{
+            transform: translateZ(3px);
+            background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553581220215&di=91943b3c087faf6b86e0670ce7c0eb3d&imgtype=0&src=http%3A%2F%2Fimg.25pp.com%2Fuploadfile%2Fsoft%2Fimages%2F2015%2F0301%2F20150301021016689.jpg);
+            background-position: 50% 50%;
+        }
+        .back-cover .back{
+            transform: translateZ(-3px);
+        }
+        .p3d{
+            transform-style: preserve-3d;
+        }
+        .flip{
+            transform: rotateY(180deg);
+        }
+        /* 图片和阴影 */
+        .dino, .shadow{
+            width: 196px;
+            height: 132px;
+            position: absolute;
+            top: 60px;
+            left: 60px;
+            transform-origin: 0 100%;
+        }
+        .dino{
+            background: url(./img/pic.jpg) no-repeat;
+            /* background: url(https://cdn.duitang.com/uploads/item/201406/17/20140617131104_hcJft.jpeg) no-repeat; */
+            /* 图片填充整个容器 */
+            block-size: cover;
+            /* 保证在容器中完全显示图片，容器可能留白 */
+            /* block-size: contain; */
+        }
+        .shadow{
+            background-color: rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="book p3d">
+        <!-- 后半本 -->
+        <div class="back-cover p3d">
+            <!-- 底页 -->
+            <div class="page back flip"></div>
+            <!-- 打开的右页 -->
+            <div class="page front psd">
+                <div class="shadow"></div>
+                <div class="dino"></div>
+            </div>
+        </div>
+        <!-- 前半本 -->
+        <div class="front-cover p3d">
+            <!-- 打开的左页 -->
+            <div class="page front flip p3d">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum nisl quis nulla eleifend dignissim.
+                    Curabitur varius lobortis tincidunt. Maecenas gravida, nulla quis luctus imperdiet, ipsum nibh consectetur
+                    ante, in sodales massa tortor eget neque. Donec porta ligula massa, id sagittis est. Ut nisl tellus, faucibus
+                    nec feugiat ut, laoreet iaculis felis. Suspendisse ultrices mauris vel tellus suscipit commodo. Integer vitae
+                    tortor erat. Pellentesque non tempor nisi.
+                </p>
+            </div>
+            <!-- 封面 -->
+            <div class="page back"></div>
+        </div>
+    </div>
+    <script>
+        (function(window,document){
+            // 前缀
+            var prefixes = ['webkit','Moz','ms','o',''],
+                book = document.querySelector('.book'),
+                page = document.querySelectorAll('.front-cover')[0],
+                dino = document.querySelectorAll('.dino')[0],
+                shadow = document.querySelectorAll('.shadow')[0],
+                hold = false,
+                // 中心点
+                centerPoint = window.innerWidth / 2,
+                // 书的大小
+                pageSize = 300,
+                // 取中间值
+                clamp = function(val,min,max){
+                    return Math.max(min,Math.min(val,max));
+                }
+
+                // 鼠标按下时执行的事件方法
+                page.onmousedown = function(){
+                    hold = true;
+                    // console.log('123');
+                }
+                // 放开鼠标执行的事件方法
+                window.onmouseup = function(){
+                    if(hold){
+                        hold = !hold;
+                        // console.log('hold'+hold);
+                    }
+                }
+                // 在窗口被调整大小的时候执行的事件
+                window.onresize = function(){
+                    centerPoint = window.innerWidth / 2;
+                }
+                // 鼠标移动的时候执行的事件
+                window.onmousemove = function(event){
+                    if(!hold){
+                        return;
+                    }
+                    // console.log(event.pageX);
+                    var angle = clamp((centerPoint - event.pageX + pageSize) / pageSize * -90, -180, 0),
+                    i,
+                    j;
+                    // 兼容
+                    for(i = 0, j = prefixes.length; i < j; i++){
+                        // 翻书时，整本书倾斜
+                        book.style[prefixes[i] + 'Transform'] = `rotateX(${60 + angle/8}deg)`;
+                        // 左半本书随鼠标移动缓缓翻开闭合
+                        page.style[prefixes[i] + 'Transform'] = `rotateY(${angle}deg)`;
+                        // 图片随着书打开缓缓立起来
+                        dino.style[prefixes[i] + 'Transform'] = `rotateX(${angle / 2}deg)`;
+                        // 图片阴影随图片立起缓缓倾斜
+                        shadow.style[prefixes[i] + 'Transform'] = `translateZ(1px) skewX(${angle/8}deg)`;
+                     }
+                    
+                }
+
+        })(window,document)
+    </script>
+</body>
+</html>
