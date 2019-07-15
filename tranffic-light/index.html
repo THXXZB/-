@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(50, 189, 199);
+        }
+        .traffic-light{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            width: 10em;
+            height: 22.5em;
+            background-color: #666;
+            border: 0.5em solid #eee;
+            border-radius: 2em;
+            z-index: 10;
+        }
+        .traffic-light::before{
+            content: '';
+            width: 3em;
+            height: 8em;
+            /* display: block; */
+            /* border: 1px solid #000; */
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #eee;
+            background: linear-gradient(rgba(240,240,240,0.9), rgb(50, 189, 199));
+            z-index: 0;
+        }
+        .light{
+            width: 6em;
+            height: 5.5em;
+            border-radius: 50%;
+            background: #000;
+            margin: 1em auto;
+        }
+        .red{
+            animation: red 10s linear infinite;
+        }
+        @keyframes red{
+            0%{
+                background:#000;
+            } 
+            2%, 40%{
+                background:rgb(255, 0, 0);
+            }
+            42%, 100%{
+                background:#000;
+            }
+        }
+        .amber{
+            animation: amber 10s linear infinite;
+        }
+        @keyframes amber{
+            0%, 20%{
+                background:#000;
+            } 
+            22%, 40%{
+                background:rgb(253, 129, 13);
+            }
+            42%, 80%{
+                background:#000;
+            }
+            82%, 100%{
+                background: rgb(253, 129, 13);
+            }
+        }
+        .green{
+            animation: green 10s linear infinite;
+        }
+        @keyframes green{
+            0%, 40%{
+                background:#000;
+            } 
+            42%, 80%{
+                background:rgb(4, 252, 4);
+            }
+            82%, 100%{
+                background:#000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="traffic-light">
+        <div class="light red"></div>
+        <div class="light amber"></div>
+        <div class="light green"></div>
+    </div>
+</body>
+</html>
