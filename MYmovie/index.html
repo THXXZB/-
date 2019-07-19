@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <title>猫眼电影</title>
+</head>
+<body>
+    <header class="nav">
+        <i class="arrow-left"></i>
+        <span>影片详情</span>
+    </header>
+    <div class="page">
+        <!-- section1 -->
+        <section class="movie-header">
+            <div class="movie">
+                <div class="movie-background"></div>
+                <div class="movie-filter"></div>
+                <div class="movie-container">
+                    <!-- pic -->
+                    <div class="movie-cover">
+                        <img src="" alt="" class="img" id="moviePic">
+                    </div>
+                    <!-- detail -->
+                    <div class="movie-content">
+                        <div class="movie-name">
+                            <span>老师好</span>
+                        </div>
+                        <div class="movie-ename">
+                            <span>hello teacher</span>
+                        </div>
+                        <!-- star -->
+                        <div class="movie-score">
+                            <div class="released-score">
+                                <div class="rating" id="rating">
+                                    <span class="rating-score"></span>
+                                </div>
+                                <div class="score-num">
+                                    (<span>41321</span>人评分)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script>
+        (function(){
+            $.ajax({
+                url: 'https://www.easy-mock.com/mock/5d2ed7b41418505a5562ae1e/movie/MYmovie-lesson',
+                type: 'get',
+                success: function(res){
+                    console.log(res);
+                    $('#moviePic').attr('src',res.data.moviePic)
+                    $('.score-num span').html(res.data.people)
+                    $('.movie-name span').html(res.data.name)
+                    $('.movie-ename span').html(res.data.nameEnglish)
+                }
+            })
+        })()
+    </script>
+</body>
+</html>
