@@ -262,3 +262,335 @@ header .create{
     width: 100%;
     /* opacity: 1; */
 }
+
+.product{
+    width: 954px;
+    margin: 0 auto;
+    padding: 90px 0 80px;
+}
+.product__hd{
+    text-align: center;
+    padding-bottom: 85px;
+}
+.product__hd .head{
+    font-size:42px;
+    font-family:Montserrat-ExtraLight;
+    font-weight:200;
+    color:rgba(20,20,20,1);
+    line-height:52px;
+}
+.product__bd{
+    /* border: 1px solid #000; */
+    display: flex;
+    
+}
+.product__bd .item{
+    /* border: 1px solid #000; */
+    flex: 1;
+    text-align: center;
+}
+.product__bd .item p{
+    width:251px;
+    font-size:16px;
+    font-family:Montserrat-ExtraLight;
+    font-weight:200;
+    color:rgba(20,20,20,1);
+    line-height:26px;
+    opacity:0.7;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.learn-choose{
+    width: 975px;
+    margin: 0 auto;
+    padding: 114px 0 106px;
+}
+.learn-choose .learn,
+.learn-choose .choose{
+    display: flex;
+    align-items: center;
+}
+.learn-choose .learn{
+    padding-bottom: 80px;
+}
+.learn-choose .learn .info{
+    padding-left: 100px;
+}
+.learn-choose .choose .info{
+    padding-right: 100px;
+}
+.learn-choose .learn .info .head,
+.learn-choose .choose .info .head{
+    width:300px;
+    font-size:20px;
+    font-family:Montserrat-Light;
+    font-weight:300;
+    color:rgba(20,20,20,1);
+    line-height:32px;
+    padding-bottom: 35px;
+}
+.learn-choose .learn .info .text,
+.learn-choose .choose .info .text{
+    width:305px;
+    font-size:16px;
+    font-family:Montserrat-ExtraLight;
+    font-weight:200;
+    color:rgba(20,20,20,1);
+    line-height:28px;
+    opacity:0.7;
+}
+
+
+.crew{
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 90px;
+}
+.crew__hd{
+    text-align: center;
+}
+.crew__hd .head{
+    font-size:42px;
+    font-family:Montserrat-ExtraLight;
+    font-weight:200;
+    color:rgba(20,20,20,1);
+    line-height:52px;
+}
+.crew__hd .text{
+    width:695px;
+    font-size:18px;
+    font-family:Montserrat-ExtraLight;
+    font-weight:200;
+    color:rgba(20,20,20,1);
+    line-height:28px;
+    opacity:0.7;
+    margin: 0 auto;
+}
+.crew__bd{
+    /* border: 1px solid #000; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.crew__bd .item{
+    width: 480px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.crew__bd .item .background{
+    width: 100%;
+    position: relative;
+}
+.crew__bd .item .background img{
+    width: 100%;
+}
+.crew__bd .item .about{
+    display: none;
+    width: 420px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #000;
+    padding: 180px 0 40px;
+    box-sizing: border-box;
+    background:rgba(20,20,20,1);
+    opacity:0.65;
+    border-radius:2px;
+}
+.crew__bd .item .about .about__hd{
+    text-align: center;
+}
+.crew__bd .item .about .about__hd .head{
+    font-size:20px;
+    font-family:Montserrat-Light;
+    font-weight:300;
+    color:rgba(255,255,255,1);
+    line-height:32px;
+}
+.crew__bd .item .about .about__hd .text{
+    font-size:12px;
+    font-family:Montserrat-Light;
+    font-weight:300;
+    color:rgba(255,255,255,1);
+    line-height:28px;
+    opacity:0.4;
+}
+.crew__bd .item .about .about__bd{
+    width: 213px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 39px;
+    box-sizing: border-box; 
+    /* border: 1px solid #fff; */
+}
+.crew__bd .item .about .about__bd .connection{
+    width:51px;
+    height:54px;
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:50%;
+    position: relative;
+    cursor: pointer;
+}
+.crew__bd .item .about .about__bd .connection:hover{
+    border:1px solid rgba(255,255,255,1);
+}
+.crew__bd .item .about .about__bd .connection img{
+    width:21px;
+    /* opacity: 1; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.item:hover .about{
+    display: block;
+}
+
+.contact{
+    width: 900px;
+    display: flex;
+    margin: 0 auto;
+    padding: 70px 0;
+    justify-content: space-between;
+}
+.contact__hd{
+    width: 470px;
+}
+.contact__bd{
+    width: 351px;
+}
+.write{
+    width: 100%;
+    text-align: center;
+    border:1px solid rgba(20,20,20,.1);
+    border-radius:10px;
+}
+.write .head{
+    font-size:16px;
+    font-family:Montserrat-Light;
+    font-weight:300;
+    color:rgba(20,20,20,1);
+    line-height:32px;
+    padding: 51px 0 47px;
+}
+.write input{
+    width:370px;
+    height:50px;
+    border:1px solid rgba(38,35,33,.2);
+    border-radius:2px;
+    display: block;
+    margin: 0 auto;
+    font-size:14px;
+    font-family:Montserrat-Light;
+    font-weight:300;
+    color:rgba(20,20,20,.5);
+    line-height:26px;
+    text-indent: 22px;
+    margin-bottom: 30px; 
+}
+.write input[type='button']{
+    text-indent: 0;
+    background:rgba(20,20,20,1);
+    border-radius:2px;  
+    font-size:12px;
+    color:rgba(255,255,255,1);
+}
+.contact__bd .info,
+.contact__bd .connect{
+    width: 100%;
+}
+.contact__bd .info .head{
+    font-size:42px;
+    font-family:Montserrat-ExtraLight;
+    font-weight:200;
+    color:rgba(20,20,20,1);
+    line-height:52px;
+}
+.contact__bd .info .text{
+    font-size:16px;
+    font-family:Montserrat-ExtraLight;
+    font-weight:200;
+    color:rgba(20,20,20,.7);
+    line-height:26px;
+    padding: 40px 0 70px;
+}
+.connect .item{
+    display: flex;
+    padding-bottom: 40px;
+}
+.connect .item .img{
+    width: 24px;
+    margin-right: 14px;
+    vertical-align: text-bottom;
+
+}
+.connect .item .decoration{
+    width: 223px;
+    font-size:16px;
+    font-family:Montserrat-Light;
+    font-weight:300;
+    color:rgba(20,20,20,1);
+    line-height:26px;
+}
+
+footer{
+    background:rgba(20,20,20,1);
+}
+.footer{
+    width: 1100px;
+    margin: 0 auto;
+    padding: 89px 0 124px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer .learn{
+    width: 127px;
+}
+.footer .about{
+    width: 140px;
+}
+.footer .support{
+    width: 83px;
+}
+.footer .enjoy{
+    width: 259px;
+}
+.footer .head{
+    font-size:14px;
+    font-family:Montserrat-Light;
+    font-weight:300;
+    color:rgba(255,255,255,1);
+    line-height:28px;
+    padding-bottom: 28px;
+}
+.footer .text{
+    font-size:16px;
+    font-family:Montserrat-ExtraLight;
+    font-weight:200;
+    color:rgba(255,255,255,.3);
+    line-height:46px;
+    
+}
+.footer .enjoy .text{
+    padding-bottom: 44px;
+}
+.footer .connect{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+.footer .connect img{
+    opacity: .6;
+    cursor: pointer;
+}
+.footer .connect img:hover{
+    opacity: 1;
+}
+
+
+
