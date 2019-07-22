@@ -1,8 +1,17 @@
 $hdbg_color = #e54847
 $font_color_block = #fff
+$bd_color = #e5e5e5
 html, body
     width 100%
-
+.flex
+    display: flex
+.flex1
+    flex: 1
+.section-title
+    font-size 17px
+    color #000
+.action-list.section-title
+    padding-left 0.4rem
 .nav
     height 1.067rem
     font-size 18px
@@ -38,7 +47,7 @@ html, body
     font 14px/1.5 Arial, Helvetica, sans-serif
     section
         background #fff
-        border-bottom 1px solid #e5e5e5
+        border-bottom 1px solid $bd_color
     .movie-header
         padding 0
         background #f8f8f8
@@ -102,5 +111,135 @@ html, body
                     .movie-ename
                         font-size: 12px
                         margin-bottom 0.3rem
+                    .movie-score
+                        font-size 12px
+                        margin-bottom 0.3rem
+                        .rating
+                            .img
+                                width 0.48rem
+                                height 0.48rem
+                                margin-right 2px
+                            .rating-score
+                                font-size .48rem
+                                color #ffc600
+                    .movie-detail
+                        font-size 12px
+                        margin-bottom 0.16rem
+                        opacity .7
+                        div,p
+                            margin-bottom 0.14rem
+
+            .operating
+                margin-top 0.8rem
+                div
+                    border: 1px solid rgba(255, 255, 255, 0.4)
+                    background-color rgba(255, 255, 255, 0.4)
+                    font-size 14px
+                    position relative
+                    z-index: 2
+                    text-align: center
+                    padding 0.25rem 0
+                    border-radius: 4px
+                    img 
+                        vertical-align: middle
+                    span
+                        vertical-align: middle
+                .movie-watch
+                    margin-right: 0.3rem
+                    img 
+                        width 14px
+                .movie-mark
+                    img 
+                        width 18px
+
+    .section-seperate
+        padding-top 0.4rem
+        margin-bottom 0.3rem
+        border-top: 1px solid $bd_color
+    .section-expender
+        padding-left 0.4rem
+        padding-right 0.4rem
+        .text-expander
+            &__content.close
+                min-height: 65px
+                display: -webkit-box
+                overflow hidden
+                text-overflow: ellipsis
+                word-break break-all
+                -webkit-box-orient: vertical
+                -webkit-line-clamp 3
+            &__button
+                height 0.7rem
+                text-align: center
+                .icon-chevron_down
+                    display: inline-block
+                    // margin: 0 auto
+                    width 10px
+                    height 10px
+                    border: 2px solid $bd_color
+                    border-width: 0 0 2px 2px
+                    transform: rotateZ(-45deg)
+                    box-sizing: border-box
+                    transition: transform .5s
+                .icon-chevron_down.up
+                    transform: rotateZ(-225deg)
+    .section-seperate
+        .movie-celebrities
+            width 100%
+            padding .3rem .3rem .1rem .3rem
+            overflow-x: scroll
+            white-space: nowrap
+            box-sizing border-box
+            li
+                text-align center
+                display inline-block
+                padding 0.04rem
+                .link
+                    color: #000
+                    .movie-celebrities__pic
+                        width 1.733rem
+                        height 2.4rem
+                        margin 0.05rem
+                        img
+                            width 100%
+                    span
+                        display: block
+                        font-size 0.2rem
+                        text-overflow: ellipsis
+                        white-space nowrap
+                        overflow: hidden
+                    .movie-celebrities-roles
+                        color: #999
+    .movie-booking
+        padding-bottom 0.2rem
+        .weui-flex
+            text-align center
+            .placeholder
+                span
+                    font-size 24px
+                    color #d96a3d
+                p
+                    color #bababa
+                    margin-top .1rem
+    .section-seperate
+        .movie-pictures
+            width 100%
+            padding .3rem .3rem .1rem .3rem
+            overflow-x: scroll
+            white-space: nowrap
+            box-sizing border-box
+            li
+                // width 3rem
+                display inline-block
+                padding 0.04rem
+                img
+                    width 100%
+
+#toast
+    display none
+.active
+    display: block !important
+
+        
                  
                         

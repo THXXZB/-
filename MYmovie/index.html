@@ -39,17 +39,107 @@
                         <div class="movie-score">
                             <div class="released-score">
                                 <div class="rating" id="rating">
+                                    <!-- <img src="./images/images/star.png" alt=""> -->
                                     <span class="rating-score"></span>
                                 </div>
                                 <div class="score-num">
-                                    (<span>41321</span>人评分)
+                                    (<span></span>人评分)
                                 </div>
                             </div>
                         </div>
+                        <div class="movie-detail">
+                            <div class="movie-type"></div>
+                            <div class="address-time">
+                                <span class="address"></span>
+                                /<span class="time"></span>分钟
+                            </div>
+                            <p class="date"></p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="operating flex">
+                    <div class="movie-watch flex1" id="movie-watch">
+                        <img src="./images/images/heart.png" alt="">
+                        <span>想看</span>
+                    </div>
+                    <div class="movie-watch flex1">
+                        <img src="./images/images/star2.png" alt="">
+                        <span>评分</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- section2 -->
+        <section class="section-seperate section-expender">
+            <div class="text-expander" id="text-expander">
+                <div class="text-expander__content close">
+                    <p></p>
+                </div>
+                <div class="text-expander__button">
+                    <i class="icon-chevron_down"></i>
+                </div>
+            </div>
+        </section>
+        <!-- section3 -->
+        <section class="section-seperate">
+            <p class="action-list section-title">演职人员</p>
+            <ul class="movie-celebrities">
+                <!-- <li>
+                    <a href="" class="link">
+                        <div class="movie-celebrities__pic">
+                            <img src="https://s0.2mdn.net/8015923/wagyumafia_300X250_Vb_24jun-sc.gif" alt="">
+                        </div>
+                        <span class="movie-celebrities-nick">张</span>
+                        <span class="movie-celebrities-roles">导演</span>
+                    </a>
+                </li> -->
+            </ul>
+        </section>
+        <!-- setion4 -->
+        <section class="section-seperate section-expender movie-booking">
+            <p class="section-title">票房</p>
+            <div class="weui-flex">
+                <div class="weui-flex__item">
+                    <div class="placeholder">
+                        <span id="ranking"></span>
+                        <p>昨日票房排行</p>
+                    </div>
+                </div>
+                <div class="weui-flex__item">
+                    <div class="placeholder">
+                        <span id="bookingWeek"></span>
+                        <p>首周票房(万)</p>
+                    </div>
+                </div>
+                <div class="weui-flex__item">
+                    <div class="placeholder">
+                        <span id="bookingTotal"></span>
+                        <p>累计票房(万)</p>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- section5 -->
+        <section class="section-seperate">
+            <p class="action-list section-title">视频和剧照</p>
+            <ul class="movie-pictures">
+                <!-- <li>
+                    <a href="#">
+                        <img src="./images/images/heart1.png" alt="">
+                    </a>
+                </li> -->
+            </ul>
+        </section>
+        <!-- toast -->
+        <div id="toast">
+            <div class="weui-mask_transparent"></div>
+            <div class="weui-toast">
+                <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+                <p class="weui-toast__content">已标记为想看</p>
+            </div>
+        </div>
     </div>
     <script>
         (function(){
@@ -62,9 +152,117 @@
                     $('.score-num span').html(res.data.people)
                     $('.movie-name span').html(res.data.name)
                     $('.movie-ename span').html(res.data.nameEnglish)
+                    $('#rating span').html(res.data.grade)
+                    star(res.data.star);
+                    $('.movie-type').html(res.data.type)
+                    $('.address').html(res.data.where)
+                    $('.time').html(res.data.time)
+                    $('.date').html(res.data.date)
+                    $('.text-expander__content p').html(res.data.desc)
+                    celebrity(res.data.person);
+                    booking(res.data.booking)
+                    pictures(res.data.pictures)
                 }
+                
             })
+            function booking(e){
+                $('#ranking').html(e.ranking)
+                $('#bookingWeek').html(e.bookingWeek)
+                $('#bookingTotal').html(e.bookingTotal)
+            }
+
+            function star(e) {
+                // 向下取整  2.9 -> 2
+                let num = Math.floor(e);
+                let white = Math.floor(5 - e);
+                // e存在小数，需要加半颗星星
+                // prepend()方法会将先加的dom元素放在后面
+                console.log(white+'   '+num);
+                for(let i = 0; i < white; i++){
+                    // 不亮星星
+                    $('#rating').prepend('<img class="img" src="./images/images/star2.png"></img>');
+                }
+                if(e > num){
+                    // 半亮星星
+                    $('#rating').prepend('<img class="img" src="./images/images/star-h.png" ></img>');
+                }
+                for(let i = 0; i < num; i++){
+                    // 全亮星星
+                    $('#rating').prepend('<img class="img" src="./images/images/star.png" ></img>');
+                }
+            }
+ 
+            // 演员表
+            function celebrity(e){
+                for (let n of e) {
+                    $('.movie-celebrities').append(
+                        `<li>
+                            <a href="" class="link">
+                                <div class="movie-celebrities__pic">
+                                    <img src="${n.avatal}" alt="">
+                                </div>
+                                <span class="movie-celebrities-nick">${n.name}</span>
+                                <span class="movie-celebrities-roles">${n.sort}</span>
+                            </a>
+                        </li>`
+                    )                
+                }
+            }
+            // 视频和剧照
+            function pictures(e){
+                for(let n of e){
+                    $('.movie-pictures').append(
+                        `<li>
+                            <a href="#">
+                                <img src="${n}" alt="">
+                            </a>
+                        </li>`
+                    )
+                }
+            }
+            
         })()
+        // 想看
+        // let movie_watch = document.querySelector('#movie-watch');
+        // let toast = document.querySelector('#toast');
+        // movie_watch.addEventListener('click',function(){
+        //     toast.classList.add('active');
+        // })
+        $('#movie-watch').click(function(){
+            if($(this).hasClass('show')){
+                $('#movie-watch img').attr('src','./images/images/heart.png');
+                $(this).removeClass('show');
+                $('#toast .weui-toast__content').html('已取消想看');
+            }else{
+                $('#movie-watch').addClass('show');
+                $('#movie-watch img').attr('src','./images/images/heart1.png');
+                $('#toast .weui-toast__content').html('已标记为想看');
+            }
+            $('#toast').addClass('active');
+            setTimeout(()=>{
+                $('#toast').removeClass('active');
+            },1500)
+        })
+        // 收放详情
+        // $('#text-expander').click(function(){
+        //     if(!$('.icon-chevron_down').hasClass('up')){
+        //         $('.icon-chevron_down').addClass('up');
+        //     }else{
+        //         $('.icon-chevron_down').removeClass('up');
+        //     }
+        // })
+       
+        $('#text-expander').on('click',function(){
+            if(!$('.icon-chevron_down').hasClass('up')){
+                $('.icon-chevron_down').addClass('up');
+                $('.text-expander__content').removeClass('close');
+            }else{
+                $('.icon-chevron_down').removeClass('up');
+                $('.text-expander__content').addClass('close');
+            }
+        })
+
+        
     </script>
 </body>
 </html>

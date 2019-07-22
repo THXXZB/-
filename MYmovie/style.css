@@ -2,6 +2,19 @@ html,
 body {
   width: 100%;
 }
+.flex {
+  display: flex;
+}
+.flex1 {
+  flex: 1;
+}
+.section-title {
+  font-size: 17px;
+  color: #000;
+}
+.action-list.section-title {
+  padding-left: 0.4rem;
+}
 .nav {
   height: 1.067rem;
   font-size: 18px;
@@ -117,4 +130,156 @@ body {
 .page .movie-header .movie-container .movie-content .movie-ename {
   font-size: 12px;
   margin-bottom: 0.3rem;
+}
+.page .movie-header .movie-container .movie-content .movie-score {
+  font-size: 12px;
+  margin-bottom: 0.3rem;
+}
+.page .movie-header .movie-container .movie-content .movie-score .rating .img {
+  width: 0.48rem;
+  height: 0.48rem;
+  margin-right: 2px;
+}
+.page .movie-header .movie-container .movie-content .movie-score .rating .rating-score {
+  font-size: 0.48rem;
+  color: #ffc600;
+}
+.page .movie-header .movie-container .movie-content .movie-detail {
+  font-size: 12px;
+  margin-bottom: 0.16rem;
+  opacity: 0.7;
+}
+.page .movie-header .movie-container .movie-content .movie-detail div,
+.page .movie-header .movie-container .movie-content .movie-detail p {
+  margin-bottom: 0.14rem;
+}
+.page .movie-header .movie .operating {
+  margin-top: 0.8rem;
+}
+.page .movie-header .movie .operating div {
+  border: 1px solid rgba(255,255,255,0.4);
+  background-color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0.25rem 0;
+  border-radius: 4px;
+}
+.page .movie-header .movie .operating div img {
+  vertical-align: middle;
+}
+.page .movie-header .movie .operating div span {
+  vertical-align: middle;
+}
+.page .movie-header .movie .operating .movie-watch {
+  margin-right: 0.3rem;
+}
+.page .movie-header .movie .operating .movie-watch img {
+  width: 14px;
+}
+.page .movie-header .movie .operating .movie-mark img {
+  width: 18px;
+}
+.page .section-seperate {
+  padding-top: 0.4rem;
+  margin-bottom: 0.3rem;
+  border-top: 1px solid #e5e5e5;
+}
+.page .section-expender {
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+.page .section-expender .text-expander__content.close {
+  min-height: 65px;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.page .section-expender .text-expander__button {
+  height: 0.7rem;
+  text-align: center;
+}
+.page .section-expender .text-expander__button .icon-chevron_down {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #e5e5e5;
+  border-width: 0 0 2px 2px;
+  transform: rotateZ(-45deg);
+  box-sizing: border-box;
+  transition: transform 0.5s;
+}
+.page .section-expender .text-expander__button .icon-chevron_down.up {
+  transform: rotateZ(-225deg);
+}
+.page .section-seperate .movie-celebrities {
+  width: 100%;
+  padding: 0.3rem 0.3rem 0.1rem 0.3rem;
+  overflow-x: scroll;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.page .section-seperate .movie-celebrities li {
+  text-align: center;
+  display: inline-block;
+  padding: 0.04rem;
+}
+.page .section-seperate .movie-celebrities li .link {
+  color: #000;
+}
+.page .section-seperate .movie-celebrities li .link .movie-celebrities__pic {
+  width: 1.733rem;
+  height: 2.4rem;
+  margin: 0.05rem;
+}
+.page .section-seperate .movie-celebrities li .link .movie-celebrities__pic img {
+  width: 100%;
+}
+.page .section-seperate .movie-celebrities li .link span {
+  display: block;
+  font-size: 0.2rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.page .section-seperate .movie-celebrities li .link .movie-celebrities-roles {
+  color: #999;
+}
+.page .movie-booking {
+  padding-bottom: 0.2rem;
+}
+.page .movie-booking .weui-flex {
+  text-align: center;
+}
+.page .movie-booking .weui-flex .placeholder span {
+  font-size: 24px;
+  color: #d96a3d;
+}
+.page .movie-booking .weui-flex .placeholder p {
+  color: #bababa;
+  margin-top: 0.1rem;
+}
+.page .section-seperate .movie-pictures {
+  width: 100%;
+  padding: 0.3rem 0.3rem 0.1rem 0.3rem;
+  overflow-x: scroll;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.page .section-seperate .movie-pictures li {
+  display: inline-block;
+  padding: 0.04rem;
+}
+.page .section-seperate .movie-pictures li img {
+  width: 100%;
+}
+#toast {
+  display: none;
+}
+.active {
+  display: block !important;
 }
