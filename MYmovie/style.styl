@@ -221,19 +221,128 @@ html, body
                 p
                     color #bababa
                     margin-top .1rem
-    .section-seperate
-        .movie-pictures
+    
+    .movie-photo
+        .movie-photo__lists
             width 100%
-            padding .3rem .3rem .1rem .3rem
+            padding .3rem .3rem .2rem .3rem
             overflow-x: scroll
             white-space: nowrap
             box-sizing border-box
-            li
-                // width 3rem
+            .stage-img-container
+                margin-right 0.13333rem
                 display inline-block
-                padding 0.04rem
-                img
+                width 2.4rem
+                height 1.867rem
+                .movie-celebrities_pic
                     width 100%
+                    height 100%
+                    img
+                        width 100%
+                        height 100%
+                &:first-child
+                    width 3.3334rem
+                    height 1.867rem
+                &:last-child
+                    margin-right 0
+    .section-seperate
+        .pos_r
+            position relative
+            .join-comment
+                position absolute
+                top 50%
+                right 0
+                transform: translateY(-50%)
+                border-radius: 20px
+                color: $font_color_block
+                background-color: #e54847
+                padding: .1rem .3rem
+        .movie-comment
+            padding .2rem 0 .4rem 0
+            overflow hidden
+            .comment-item
+                border 1px solid #aaa
+                // display: inline-block
+                float: left 
+                border-radius: 20px
+                padding: .1rem .25rem
+                margin: .15rem
+                .comment-item__sort
+                    font-size 18px
+    .section-seperate
+        .chosen-comment
+            padding: .2rem 0 .3rem
+            .chosen-comment__item
+                display: flex
+                padding: .2rem 0 .3rem
+                border-bottom 1px solid $bd_color
+                // justify-content space-between
+                &:last-child
+                    border-bottom none
+                .item-avatal
+                    width 1rem
+                    height 1rem
+                    border-radius: 50%
+                    overflow hidden
+                    border 1px solid #000
+                    img
+                        width 100%
+                .item-detail
+                    flex: 1
+                    padding-left: .4rem
+                    .item-detail__hd
+                        width 100%
+                        // padding-bottom: .4rem
+                        // border: 1px solid #000
+                        .greed
+                            display: flex
+                            .nick-name
+                                color: #000000
+                                font-size 16px
+                                line-height: 20px
+                                padding-right: .2rem
+                            .level
+                                width 1rem
+                                // height 20px
+                                img
+                                    width 100%
+                                    // height 100%
+                        .item-score__desc
+                            color: #999
+                    .item-detail__bd
+                        width 100%
+                        .details
+                            font-size 20px
+                            line-height: 28px
+                            color: #000
+                            padding .4rem .2rem .2rem 0
+                        .decoration
+                            width: 100%
+                            display: flex
+                            .comment-date
+                                flex: 1
+                                p
+                                    color: #999
+                                    padding-top: 5px
+                            .like, .replay
+                                border: 1px solid #aaa
+                                border-radius: 20px
+                                padding .1rem .2rem
+                                box-sizing: border-box
+                                margin-left: .2rem
+                                .icon
+                                    width .4rem
+                                    height .4rem
+                                    display: inline-block
+                                    // border: 1px solid #000
+                                    img
+                                        width 100%
+                                        vertical-align: middle
+                                span
+                                    display inline-block
+                                    line-height: .4rem
+                                    
+
 
 #toast
     display none

@@ -122,16 +122,113 @@
             </div>
         </section>
         <!-- section5 -->
-        <section class="section-seperate">
+        <section class="movie-photo section-seperate">
             <p class="action-list section-title">视频和剧照</p>
-            <ul class="movie-pictures">
-                <!-- <li>
-                    <a href="#">
-                        <img src="./images/images/heart1.png" alt="">
+            <ul class="movie-photo__lists">
+                <!-- <li class="stage-img-container">
+                    <a href="#" class="link">
+                        <div class="movie-celebrities_pic">
+                                <img src="./images/images/heart1.png" alt="">
+                        </div>
                     </a>
                 </li> -->
             </ul>
         </section>
+        <!-- section6 -->
+        <section class="section-seperate section-expender">
+            <p class="section-title pos_r">讨论
+                <span class="join-comment">参加讨论</span>
+            </p>
+            <ul class="movie-comment">
+                <li class="comment-item">
+                    <div class="comment-item__sort">
+                        <span>全部</span>
+                        <span class="comment-item_num"></span>
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <div class="comment-item__sort">
+                        <span>好评</span>
+                        <span class="comment-item_num" id="good"></span>
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <div class="comment-item__sort">
+                        <span>差评</span>
+                        <span class="comment-item_num" id="bad"></span>
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <div class="comment-item__sort">
+                        <span>点映</span>
+                        <span class="comment-item_num" id="dy"></span>
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <div class="comment-item__sort">
+                        <span>购票</span>
+                        <span class="comment-item_num" id="bought"></span>
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <div class="comment-item__sort">
+                        <span>认证作者</span>
+                        <span class="comment-item_num" id="author"></span>
+                    </div>
+                </li>
+                <li class="comment-item">
+                    <div class="comment-item__sort">
+                        <span>同城</span>
+                        <span class="comment-item_num" id="sameCity"></span>
+                    </div>
+                </li>
+                    
+                    
+            </ul>
+        </section>
+        <!-- section7 -->
+        <section class="section-seperate section-expender">
+            <p class="section-title">精选</p>
+            <ul class="chosen-comment" id="chosen-comment">
+                <!-- <li class="chosen-comment__item">
+                    <div class="item-avatal">
+                        <img src="./images/images/heart.png" alt="">
+                    </div>
+                    <div class="item-detail">
+                        <div class="item-detail__hd">
+                            <div class="greed">
+                                <div class="nick-name">额问我</div>
+                                <div class="level"> <img src="http://p0.meituan.net/moviemachine/83a90e3a7dda4463963fbc7fb8c02ee32335.png" alt=""> </div>
+                            </div>
+                            <p class="item-score__desc">给这部电影打了<span>10</span>分</p>
+                        </div>
+                        <div class="item-detail__bd">
+                            <div class="details">
+                                <p>上面代码中，变量i是let声明的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，所以最后输出的是6。你可能会问，如果每一轮循环的变量i都是重新声明的，那它怎么知道上一轮循环的值，从而计算出本轮循环的值？这是因为 JavaScript 引擎内部会记住上一轮循环的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算。</p>
+                            </div>
+                            <div class="decoration">
+                                <div class="comment-date">
+                                    <p>4-4</p>
+                                </div>
+                                <div class="like">
+                                    <i class="icon">
+                                            <img src="./images/images/点赞.png" alt="">
+                                    </i>
+                                    <span>234</span>
+                                </div>
+                                <div class="replay">
+                                    <i class="icon">
+                                        <img src="./images/images/回复.png" alt="">
+                                    </i>
+                                    <span>534532</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+        </section>
+          
         <!-- toast -->
         <div id="toast">
             <div class="weui-mask_transparent"></div>
@@ -159,9 +256,16 @@
                     $('.time').html(res.data.time)
                     $('.date').html(res.data.date)
                     $('.text-expander__content p').html(res.data.desc)
-                    celebrity(res.data.person);
+                    celebrity(res.data.person)
                     booking(res.data.booking)
                     pictures(res.data.pictures)
+                    $('.comment-item__sort #good').html(res.data.commentNum.good)
+                    $('.comment-item__sort #bad').html(res.data.commentNum.bad)
+                    $('.comment-item__sort #dy').html(res.data.commentNum.dy)
+                    $('.comment-item__sort #bought').html(res.data.commentNum.bought)
+                    $('.comment-item__sort #sameCity').html(res.data.commentNum.sameCity)
+                    $('.comment-item__sort #author').html(res.data.commentNum.author)
+                    comment(res.data.comment)
                 }
                 
             })
@@ -211,16 +315,60 @@
             // 视频和剧照
             function pictures(e){
                 for(let n of e){
-                    $('.movie-pictures').append(
-                        `<li>
-                            <a href="#">
-                                <img src="${n}" alt="">
+                    $('.movie-photo__lists').append(
+                        `<li class="stage-img-container">
+                            <a href="#" class="link">
+                                <div class="movie-celebrities_pic">
+                                    <img src="${n}" alt="">
+                                </div>
                             </a>
                         </li>`
                     )
                 }
             }
-            
+            //评论
+            function comment(e){
+                for(let n of e){
+                    $('#chosen-comment').append(
+                        `<li class="chosen-comment__item">
+                            <div class="item-avatal">
+                                <img src="${n.avatal}" alt="">
+                            </div>
+                            <div class="item-detail">
+                                <div class="item-detail__hd">
+                                    <div class="greed">
+                                        <div class="nick-name">${n.nickName}</div>
+                                        <div class="level"> <img src="${n.lever}" alt=""> </div>
+                                    </div>
+                                    <p class="item-score__desc">给这部电影打了<span>${n.grade}</span>分</p>
+                                </div>
+                                <div class="item-detail__bd">
+                                    <div class="details">
+                                        <p>${n.detail}</p>
+                                    </div>
+                                    <div class="decoration">
+                                        <div class="comment-date">
+                                            <p>${n.date}</p>
+                                        </div>
+                                        <div class="like">
+                                            <i class="icon">
+                                                    <img src="./images/images/点赞.png" alt="">
+                                            </i>
+                                            <span>${n.like}</span>
+                                        </div>
+                                        <div class="replay">
+                                            <i class="icon">
+                                                <img src="./images/images/回复.png" alt="">
+                                            </i>
+                                            <span>${n.reply}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>`
+                    )
+                }
+            }
         })()
         // 想看
         // let movie_watch = document.querySelector('#movie-watch');

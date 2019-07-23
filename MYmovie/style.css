@@ -263,19 +263,150 @@ body {
   color: #bababa;
   margin-top: 0.1rem;
 }
-.page .section-seperate .movie-pictures {
+.page .movie-photo .movie-photo__lists {
   width: 100%;
-  padding: 0.3rem 0.3rem 0.1rem 0.3rem;
+  padding: 0.3rem 0.3rem 0.2rem 0.3rem;
   overflow-x: scroll;
   white-space: nowrap;
   box-sizing: border-box;
 }
-.page .section-seperate .movie-pictures li {
+.page .movie-photo .movie-photo__lists .stage-img-container {
+  margin-right: 0.13333rem;
   display: inline-block;
-  padding: 0.04rem;
+  width: 2.4rem;
+  height: 1.867rem;
 }
-.page .section-seperate .movie-pictures li img {
+.page .movie-photo .movie-photo__lists .stage-img-container .movie-celebrities_pic {
   width: 100%;
+  height: 100%;
+}
+.page .movie-photo .movie-photo__lists .stage-img-container .movie-celebrities_pic img {
+  width: 100%;
+  height: 100%;
+}
+.page .movie-photo .movie-photo__lists .stage-img-container:first-child {
+  width: 3.3334rem;
+  height: 1.867rem;
+}
+.page .movie-photo .movie-photo__lists .stage-img-container:last-child {
+  margin-right: 0;
+}
+.page .section-seperate .pos_r {
+  position: relative;
+}
+.page .section-seperate .pos_r .join-comment {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 20px;
+  color: #fff;
+  background-color: #e54847;
+  padding: 0.1rem 0.3rem;
+}
+.page .section-seperate .movie-comment {
+  padding: 0.2rem 0 0.4rem 0;
+  overflow: hidden;
+}
+.page .section-seperate .movie-comment .comment-item {
+  border: 1px solid #aaa;
+  float: left;
+  border-radius: 20px;
+  padding: 0.1rem 0.25rem;
+  margin: 0.15rem;
+}
+.page .section-seperate .movie-comment .comment-item .comment-item__sort {
+  font-size: 18px;
+}
+.page .section-seperate .chosen-comment {
+  padding: 0.2rem 0 0.3rem;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item {
+  display: flex;
+  padding: 0.2rem 0 0.3rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item:last-child {
+  border-bottom: none;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-avatal {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-avatal img {
+  width: 100%;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail {
+  flex: 1;
+  padding-left: 0.4rem;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__hd {
+  width: 100%;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__hd .greed {
+  display: flex;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__hd .greed .nick-name {
+  color: #000;
+  font-size: 16px;
+  line-height: 20px;
+  padding-right: 0.2rem;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__hd .greed .level {
+  width: 1rem;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__hd .greed .level img {
+  width: 100%;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__hd .item-score__desc {
+  color: #999;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd {
+  width: 100%;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .details {
+  font-size: 20px;
+  line-height: 28px;
+  color: #000;
+  padding: 0.4rem 0.2rem 0.2rem 0;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration {
+  width: 100%;
+  display: flex;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .comment-date {
+  flex: 1;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .comment-date p {
+  color: #999;
+  padding-top: 5px;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .like,
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .replay {
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  padding: 0.1rem 0.2rem;
+  box-sizing: border-box;
+  margin-left: 0.2rem;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .like .icon,
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .replay .icon {
+  width: 0.4rem;
+  height: 0.4rem;
+  display: inline-block;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .like .icon img,
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .replay .icon img {
+  width: 100%;
+  vertical-align: middle;
+}
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .like span,
+.page .section-seperate .chosen-comment .chosen-comment__item .item-detail .item-detail__bd .decoration .replay span {
+  display: inline-block;
+  line-height: 0.4rem;
 }
 #toast {
   display: none;
